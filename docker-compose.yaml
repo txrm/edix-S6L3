@@ -2,10 +2,14 @@
 version: "3"
 
 services:
+
   redis:
     image: redis:7.2.1-alpine
     networks:
-      - qualentum
+      qualentum:
+        aliases:
+          - redis
+
     healthcheck:
       test: [ "CMD", "redis-cli","ping" ]
       interval: 60s
@@ -16,7 +20,10 @@ services:
 
   app1:
     networks:
-      - qualentum
+      qualentum:
+        aliases:
+          - app1
+
     depends_on:
       redis:
         condition: service_healthy
@@ -31,7 +38,10 @@ services:
 
   app2:
     networks:
-      - qualentum
+      qualentum:
+        aliases:
+          - app2
+
     depends_on:
       redis:
         condition: service_healthy
@@ -48,6 +58,11 @@ services:
 
 
   nginx:
+    networks:
+      qualentum:
+        aliases:
+          - nginx
+
     depends_on:
       redis:
         condition: service_healthy
