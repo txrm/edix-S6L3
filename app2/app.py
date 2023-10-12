@@ -1,6 +1,5 @@
 from flask import Flask
 import redis
-import os
 import socket
 import requests
 
@@ -11,7 +10,7 @@ nginx_url = "http://nginx"
 
 app = Flask(__name__)
 
-redis_host = os.getenv("REDIS_HOST", default="172.17.0.1")
+redis_host = "http://redis"
 redis_client = redis.StrictRedis(host=redis_host, port=6379, db=0)
 
 

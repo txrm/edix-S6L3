@@ -1,6 +1,5 @@
 from flask import Flask
 import redis
-import os
 import socket
 
 server_id = socket.gethostname()
