@@ -31,9 +31,16 @@ services:
     ports:
       - "5000"
 
+    healthcheck:
+      test: [ "CMD", "curl","0.0.0.0:5000/health" ]
+      interval: 60s
+      timeout: 5s
+      retries: 2
+
     deploy:
       restart_policy:
         condition: on-failure
+      replicas: 5
 
 
   app2:
@@ -52,9 +59,16 @@ services:
     ports:
       - "5000"
 
+    healthcheck:
+      test: [ "CMD", "curl","0.0.0.0:5000/health" ]
+      interval: 60s
+      timeout: 5s
+      retries: 2
+
     deploy:
       restart_policy:
         condition: on-failure
+      replicas: 5
 
 
   nginx:
