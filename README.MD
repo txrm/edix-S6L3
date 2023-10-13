@@ -1,6 +1,17 @@
 # Sprint 6, LAB 3
 
-## Steps:
+## Result
+![diagram](https://github.com/txrm/edix-S6L3/blob/main/screencaps/diagram.png?raw=true)
+![result](https://github.com/txrm/edix-S6L3/blob/main/screencaps/result.png?raw=true)
+
+## Deployment
+```shell
+git clone https://github.com/txrm/edix-S6L3.git
+cd edix-S6L3/
+
+docker-compose up
+```
+## Exercise steps:
 
 1. Copied sample .py.
 2. Modified Dockerfile to reduce filesize.
@@ -10,7 +21,7 @@
 6. Set up alias assignment in Compose file
 7. Set up healthchecks for apps in Compose file
 8. Added nginx to Compose file.
-9. *Created nginx config so requests from the outside are directed to app1 or app2 as it wasn't made clear enough from the problem PDF **if app2 was the only one meant to be exposed**. Request recognition achieved through a simple header.*
+9. *Created nginx config so requests from the outside are directed to app1 or app2, as it wasn't made clear enough from the problem's PDF **if app2 was the only one meant to be exposed**. Request recognition achieved through a simple header.*
 10. Added header to app2 .py.
 11. Changed fixed IPs to solvable Hostnames in app.py's.
 12. Debugging and release.
