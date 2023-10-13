@@ -7,7 +7,7 @@ hits_id = f"{server_id}_hits"
 
 app = Flask(__name__)
 
-redis_host = "http://redis"
+redis_host = "redis"
 redis_client = redis.StrictRedis(host=redis_host, port=6379, db=0)
 
 
