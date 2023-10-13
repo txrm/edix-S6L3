@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask
 import redis
 import socket
 import requests
@@ -24,14 +24,6 @@ def hello():
         "app1_message": app1_response.json()
     }
 
-@app.route('/health')
-def health_check():
-    try:
-        response = redis_client.ping()
-        if response:
-            return Response('{"status": "OK", "message": "Flask OK, Redis OK"}', content_type='application/json')
-    except Exception as e:
-        return Response('{"status": "Error", "message": "' + str(e) + '"}', content_type='application/json')
 
 
 if __name__ == '__main__':
